@@ -12,6 +12,7 @@ const Board = (props) => {
   function handleClick(event) {
     if (event.target.src === img0) {
       const index = parseInt(event.target.parentElement.id.slice(-1));
+      props.handleSpaceClick(index);
     }
   }
 
