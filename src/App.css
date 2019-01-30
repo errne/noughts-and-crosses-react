@@ -1,18 +1,17 @@
 .board-container {
-  width: 500px;
-  height: 500px;
   display: inline-grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
   border: 1px black solid;
 
 }
 
 .board-square {
   border: 1px black solid;
+
 }
 
 .board-square img {
-  width: 90%;
-  height: auto;
+  width: 150px;
+  height: 150px;
 }

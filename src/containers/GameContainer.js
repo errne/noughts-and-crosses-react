@@ -7,7 +7,7 @@ class GameContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      spaces: [1,2,0,0,0,0,0,0,0],
+      spaces: [1,2,0,0,0,0,0,0,0], //TODO return to 0s
       currentPlayer: 1
     };
   }
