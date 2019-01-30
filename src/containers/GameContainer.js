@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Board from '../components/Board.js';
 import GameLogic from '../models/GameLogic.js';
+import Header from '../components/Header.js';
+import TextPrompts from '../components/TextPrompts.js';
 
 class GameContainer extends Component {
 
@@ -18,18 +20,24 @@ class GameContainer extends Component {
     const newSpaces = [...this.state.spaces];
     newSpaces[index] = this.state.currentPlayer;
     this.setState({spaces: newSpaces}, () => {
-      console.log(this.state.spaces);
       const turnResult = GameLogic.checkWin(this.state.currentPlayer, this.state.spaces);
-      this.setState({gameOver: turnResult});
-      const playerChanger = {1: 2, 2: 1};
-      this.setState({currentPlayer: playerChanger[this.state.currentPlayer]});
+      this.setState({gameOver: turnResult}, () => {
+        if (!this.state.gameOver) {
+          const playerChanger = {1: 2, 2: 1};
+          this.setState({currentPlayer: playerChanger[this.state.currentPlayer]});
+        }
+      });
     });
 
   }
 
   render() {
     return (
+      <>
+      <Header />
+      <TextPrompts currentPlayer={this.state.currentPlayer} gameOver={this.state.gameOver} />
       <Board spaces={this.state.spaces} handleSpaceClick={this.handleSpaceClick} gameOver={this.state.gameOver}/>
+      </>
     )
   }
 

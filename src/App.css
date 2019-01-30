@@ -27,3 +27,8 @@ body {
   width: 150px;
   height: 150px;
 }
+
+h1, h2 {
+  color: white;
+  font-family: fantasy;
+}
