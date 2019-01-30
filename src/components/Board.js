@@ -11,7 +11,7 @@ const Board = (props) => {
 
   function handleClick(event) {
     if (event.target.src === img0) {
-      console.log(event.target.parentElement.id);
+      const index = parseInt(event.target.parentElement.id.slice(-1));
     }
   }
 
@@ -19,7 +19,7 @@ const Board = (props) => {
 
   return (
     <div className="board-container">
-      <div value="1" id="box0" className="board-square" >
+      <div id="box0" className="board-square" >
         <img src={boardImages[props.spaces[0]]} alt="nought or cross" onClick={handleClick}/>
       </div>
       <div id="box1" className="board-square">
